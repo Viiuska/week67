@@ -92,7 +92,8 @@ const buildChart = async () => {
     data: charData,
     type: "line",
     colors: ["#eb5146"],
-    high: 450
+    height: 450,
+    high:450
   });
 };
 
