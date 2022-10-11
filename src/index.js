@@ -73,16 +73,16 @@ const getData = async () => {
 const buildChart = async () => {
   const data = await getData();
   const years = Object.values(data.dimension.Vuosi.category.label);
-  const alue = Object.values(data.dimension.Alue); //ei tarvii
+  const alue = Object.values(data.dimension.Alue);
   const luku = data.value;
 
   //console.log(alue[1].index)
   let n = alue[1].index;
-  console.log(Object.keys(n)[0]);
+  //console.log(Object.keys(n)[0]);
 
   const charData = {
     labels: years,
-    datasets: [{ name: n[0], values: luku.reverse() }]
+    datasets: [{ name: Object.keys(n)[0], values: luku.reverse() }]
   };
 
   const chart = new Chart("#chart", {
@@ -90,7 +90,6 @@ const buildChart = async () => {
     data: charData,
     type: "line",
     colors: ["#eb5146"],
-    height: 450,
     high: 450
   });
 };
