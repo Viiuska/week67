@@ -73,18 +73,12 @@ const getData = async () => {
 const buildChart = async () => {
   const data = await getData();
   const years = Object.values(data.dimension.Vuosi.category.label);
-  const alue = Object.values(data.dimension.Alue); //ei tarvii
+  const alue = Object.values(data.dimension.Alue.category.label); //ei tarvii
   const luku = data.value;
-
-  let submitBtn = document.getElementById("submit-data");
-
-  submitBtn.addEventListener("click", function () {
-    let mun = document.getElementById("input-area").value;
-  });
 
   const charData = {
     labels: years,
-    datasets: [{ values: luku.reverse() }]
+    datasets: [{ values: luku.reverse()}, { name: alue }]
   };
 
   const chart = new Chart("#chart", {
