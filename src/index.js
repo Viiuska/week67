@@ -82,7 +82,7 @@ const buildChart = async () => {
 
   const charData = {
     labels: years,
-    datasets: [{ name: Object.keys(n)[0], values: luku.reverse() }]
+    datasets: [{ name: Object.keys(n)[0], values: luku }]
   };
 
   const chart = new Chart("#chart", {
