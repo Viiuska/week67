@@ -70,7 +70,7 @@ const getData = async () => {
   return data;
 };
 
-const buildChart = async () => {
+const buildChart = async (clicked, kunta) => {
   const data = await getData();
   const years = Object.values(data.dimension.Vuosi.category.label);
   const alue = Object.values(data.dimension.Alue);
@@ -93,5 +93,14 @@ const buildChart = async () => {
     height: 450
   });
 };
+let clicked = "false";
+let kunta = "";
 
-buildChart();
+buildChart(clicked, kunta);
+const submitBtn = document.getElementById("submit-data");
+//discussion with Kirveskoski
+submitBtn.addEventListener("click", function () {
+  kunta = document.getElementById("input-area").value;
+  clicked = "true";
+  buildChart(clicked, kunta);
+});
